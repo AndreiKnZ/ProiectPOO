@@ -1,0 +1,386 @@
+import java.util.ArrayList;
+
+abstract class Telefon{
+    protected int pret = 0;
+    protected String model = "fara model";
+    protected int calitateFoto = 0;
+    protected String sistemDeOperare = "inexistent";
+    abstract void pretAbonament();
+    abstract void incarcareBaterie();
+}
+
+class TelefonMobil extends Telefon{
+    private String sanatateBaterie = "nicio baterie";
+    private String culoareTelefon = "nicio culoare";
+    private String dimensiuniTelefon = "nicio dimensiune";
+    private String procesorTelefon = "fara procesor";
+
+    TelefonMobil(){}
+    TelefonMobil(int pret, String model, String sistemDeOperare, int calitateFoto, String sanatateBaterie, String culoareTelefon, String dimensiuniTelefon, String procesorTelefon){
+        this.pret = pret;
+        this.model = model;
+        this.calitateFoto = calitateFoto;
+        this.sistemDeOperare = sistemDeOperare;
+        this.sanatateBaterie = sanatateBaterie;
+        this.culoareTelefon = culoareTelefon;
+        this.dimensiuniTelefon = dimensiuniTelefon;
+        this.procesorTelefon = procesorTelefon;
+    }
+    TelefonMobil(TelefonMobil telefon){
+        this.pret = telefon.pret;
+        this.model = telefon.model;
+        this.calitateFoto = telefon.calitateFoto;
+        this.sistemDeOperare = telefon.sistemDeOperare;
+        this.sanatateBaterie = telefon.sanatateBaterie;
+        this.culoareTelefon = telefon.culoareTelefon;
+        this.dimensiuniTelefon = telefon.dimensiuniTelefon;
+        this.procesorTelefon = telefon.procesorTelefon;
+    }
+    public void setPret(int pret){
+        this.pret = pret;
+    }
+    public int getPret(){
+        return this.pret;
+    }
+    public void setModel(String model){
+        this.model = model;
+    }
+    public String getModel(){
+        return this.model;
+    }
+    public void setCalitateFoto(int calitateFoto){
+        this.calitateFoto = calitateFoto;
+    }
+    public int getCalitateFoto(){
+        return this.calitateFoto;
+    }
+    public void setSistemDeOperare(String sistemDeOperare){
+        this.sistemDeOperare = sistemDeOperare;
+    }
+    public String getSistemDeOperare(){
+        return this.sistemDeOperare;
+    }
+    public void setSanatateBaterie(String sanatateBaterie){
+        this.sanatateBaterie = sanatateBaterie;
+    }
+    public String getSanatateBaterie(String sanatateBaterie){
+        return this.sanatateBaterie;
+    }
+    public void setCuloareTelefon(String culoareTelefon){
+        this.culoareTelefon = culoareTelefon;
+    }
+    public String getCuloareTelefon(){
+        return this.culoareTelefon;
+    }
+    public void setDimensiuniTelefon(String dimensiuniTelefon){
+        this.dimensiuniTelefon = dimensiuniTelefon;
+    }
+    public String getDimensiuniTelefon(){
+        return this.dimensiuniTelefon;
+    }
+    public void setProcesorTelefon(String procesorTelefon){
+        this.procesorTelefon = procesorTelefon;
+    }
+    public String getProcesorTelefon(){
+        return this.procesorTelefon;
+    }
+    public String toString(){
+        String mesaj;
+        mesaj = "Telefonul mobil are urmatoarele specificatii: " +
+                "culoarea - " + this.culoareTelefon +
+                ",dimensiuni - " + this.dimensiuniTelefon +
+                ",procesor - " + this.procesorTelefon +
+                ",sanatate baterie - " + this.sanatateBaterie +
+                ",sistem de operare - " + this.sistemDeOperare +
+                ",calitate foto - " + this.calitateFoto +
+                ",model - " + this.model +
+                ",pret - " + this.pret;
+
+        return mesaj;
+    }
+    public void pretAbonament(){
+        System.out.println("Pretul unui abonament pentru un telefon fix este ieftin.");
+    }
+    public void incarcareBaterie(){
+        System.out.println("Telefonul fix isi incarca bateria intr-o maniera lenta.");
+    }
+}
+
+class TelefonFix extends Telefon{
+    private int razaDeActiune = 0;
+    private String culoareTelefon = "nicio culoare";
+
+    TelefonFix(){}
+    TelefonFix(int pret, String model, String sistemDeOperare, int razaDeActiune, String culoareTelefon){
+        this.pret = pret;
+        this.model = model;
+        this.sistemDeOperare = sistemDeOperare;
+        this.razaDeActiune = razaDeActiune;
+        this.culoareTelefon = culoareTelefon;
+    }
+    TelefonFix(TelefonFix telefon){
+        this.pret = telefon.pret;
+        this.model = telefon.model;
+        this.sistemDeOperare = telefon.sistemDeOperare;
+        this.razaDeActiune = telefon.razaDeActiune;
+        this.culoareTelefon = telefon.culoareTelefon;
+    }
+    public void setPret(int pret){
+        this.pret = pret;
+    }
+    public int getPret(){
+        return this.pret;
+    }
+    public void setSistemDeOperare(String sistemDeOperare){
+        this.sistemDeOperare = sistemDeOperare;
+    }
+    public String getSistemDeOperare(){
+        return this.sistemDeOperare;
+    }
+    public void setCuloareTelefon(String culoareTelefon){
+        this.culoareTelefon = culoareTelefon;
+    }
+    public String getCuloareTelefon(){
+        return this.culoareTelefon;
+    }
+    public void setModel(String model){
+        this.model = model;
+    }
+    public String getModel(){
+        return this.model;
+    }
+    public void setRazaDeActiune(int razaDeActiune){
+        this.razaDeActiune = razaDeActiune;
+    }
+    public int getRazaDeActiune(){
+        return this.razaDeActiune;
+    }
+    public String toString(){
+        String mesaj;
+        mesaj = "Telefonul fix are urmatoarele specificatii: " +
+                "culoarea - " + this.culoareTelefon +
+                ",sistem de operare - " + this.sistemDeOperare +
+                ",model - " + this.model +
+                ",pret - " + this.pret +
+                ",raza de actiune - " + this.razaDeActiune;
+
+        return mesaj;
+    }
+    public void pretAbonament(){
+        System.out.println("Pretul unui abonament pentru un telefon mobil este scump.");
+    }
+
+    public void incarcareBaterie(){
+        System.out.println("Telefonul mobil isi incarca bateria intr-o maniera rapida.");
+    }
+}
+class TelefonPublic extends Telefon{
+    private String sanatateBaterie = "baterie duracell";
+    private String culoareTelefon = "culoare rosie";
+    private String dimensiuniTelefon = "nicio dimensiune";
+    private String dimensiuneaCabinei;
+
+    TelefonPublic(){}
+
+    TelefonPublic(int pret, String model, String culoareTelefon, String dimensiuniTelefon, String dimensiuneaCabinei){
+        this.pret = pret;
+        this.model = model;
+        this.culoareTelefon = culoareTelefon;
+        this.dimensiuniTelefon = dimensiuniTelefon;
+        this.dimensiuneaCabinei = dimensiuneaCabinei;
+    }
+    TelefonPublic(TelefonPublic telefon){
+        this.pret = telefon.pret;
+        this.model = telefon.model;
+        this.culoareTelefon = telefon.culoareTelefon;
+        this.dimensiuniTelefon = telefon.dimensiuniTelefon;
+    }
+    public void setPret(int pret){
+        this.pret = pret;
+    }
+    public int getPret(){
+        return this.pret;
+    }
+    public void setModel(String model){
+        this.model = model;
+    }
+    public String getModel(){
+        return this.model;
+    }
+
+    public void setDimensiuneaCabinei(String dimensiuneaCabinei){
+        this.dimensiuneaCabinei = dimensiuneaCabinei;
+    }
+
+    public String getDimensiuneaCabinei(){
+        return this.dimensiuneaCabinei;
+    }
+    public void setCuloareTelefon(String culoareTelefon){
+        this.culoareTelefon = culoareTelefon;
+    }
+    public String getCuloareTelefon(){
+        return this.culoareTelefon;
+    }
+    public void setDimensiuniTelefon(String dimensiuniTelefon){
+        this.dimensiuniTelefon = dimensiuniTelefon;
+    }
+    public String getDimensiuniTelefon(){
+        return this.dimensiuniTelefon;
+    }
+    public String toString(){
+        String mesaj;
+        mesaj = "Telefonul public are urmatoarele specificatii: " +
+                "culoarea - " + this.culoareTelefon +
+                ",dimensiuni - " + this.dimensiuniTelefon +
+                ",model - " + this.model +
+                ",pret - " + this.pret +
+                ",dimensiuneaCabinei - " + this.dimensiuneaCabinei;
+
+        return mesaj;
+    }
+    public void pretAbonament(){
+        System.out.println("Nu exista abonament.");
+    }
+    public void incarcareBaterie(){
+        System.out.println("Telefonul public nu isi incarca bateria.");
+    }
+}
+public class Main{
+
+    public static void main(String []args){
+        ArrayList<TelefonMobil> telMobile = new ArrayList<TelefonMobil>();
+        ArrayList<TelefonFix> telFixe = new ArrayList<TelefonFix>();
+        ArrayList<TelefonPublic> telPublic = new ArrayList<TelefonPublic>();
+
+        TelefonMobil tlf = new TelefonMobil(7000, "Iphone 14 PRO MAX", "IOS",
+                20, "Foarte Buna", "Violet", "6.7 Inch", "A16 Bionic");
+        telMobile.add(tlf);
+        System.out.println(telMobile.get(0).toString());
+
+        TelefonMobil tlf2 = new TelefonMobil(6000, "Iphone 13 PRO MAX", "IOS",
+                19, "Foarte Buna", "Negru", "6.7 Inch", "A15 Bionic");
+        telMobile.add(tlf2);
+        System.out.println(telMobile.get(1).toString());
+
+        TelefonMobil tlf3 = new TelefonMobil(5500, "Iphone 12 PRO MAX", "IOS",
+                18, "Foarte Buna", "Auriu", "6.7 inch", "A14 Bionic");
+        telMobile.add(tlf3);
+        System.out.println(telMobile.get(2).toString());
+
+        TelefonMobil tlf4 = new TelefonMobil(6500, "Iphone 14 PRO", "IOS",
+                17, "Foarte Buna", "Verde", "6.7 inch", "A16 Bionic");
+        telMobile.add(tlf4);
+        System.out.println(telMobile.get(3).toString());
+
+        TelefonMobil tlf5 = new TelefonMobil(5500, "Iphone 13 PRO", "IOS",
+                16, "Foarte Buna", "Alb", "6.1 inch", "A15 Bionic");
+        telMobile.add(tlf5);
+        System.out.println(telMobile.get(4).toString());
+
+        TelefonMobil tlf6 = new TelefonMobil(4500, "Iphone 12 PRO", "IOS",
+                15, "Foarte Buna", "Portocaliu", "6.1 inch", "A14 Bionic");
+        telMobile.add(tlf6);
+        System.out.println(telMobile.get(5).toString());
+
+        TelefonMobil tlf7 = new TelefonMobil(5800, "Samsung S22", "Android",
+                14, "Buna", "Verde", "6.7 inch", "Exynos 2200");
+        telMobile.add(tlf7);
+        System.out.println(telMobile.get(6).toString());
+
+        TelefonMobil tlf8 = new TelefonMobil(5000, "Samsung S21", "Android",
+                12, "Buna", "Negru", "6.5 inch", "Exynos 2100");
+        telMobile.add(tlf8);
+        System.out.println(telMobile.get(7).toString());
+
+        TelefonMobil tlf9 = new TelefonMobil(4300, "Samsung S20", "Android",
+                10, "Buna", "Albastru", "6.3 inch", "Exynos 2000");
+        telMobile.add(tlf9);
+        System.out.println(telMobile.get(8).toString());
+
+        TelefonMobil tlf10 = new TelefonMobil(4000, "Samsung S8", "Android",
+                8, "Buna", "Galben", "6 inch", "Exynos 1500");
+        telMobile.add(tlf10);
+        System.out.println(telMobile.get(9).toString());
+
+        TelefonFix tlf11 = new TelefonFix(869, "Iphone", "Android 12.4", 35, "Negru");
+        telFixe.add(tlf11);
+        System.out.println(telFixe.get(0).toString());
+
+        TelefonFix tlf12 = new TelefonFix(800, "Iphone", "Android 11.2", 35, "Verde");
+        telFixe.add(tlf12);
+        System.out.println(telFixe.get(1).toString());
+
+        TelefonFix tlf13 = new TelefonFix(754, "Iphone", "Anrdoid 11.2", 35, "Albastru");
+        telFixe.add(tlf13);
+        System.out.println(telFixe.get(2).toString());
+
+
+        TelefonFix tlf14 = new TelefonFix(694, "Alcatel V50", "Android 10.3", 25, "Galben");
+        telFixe.add(tlf14);
+        System.out.println(telFixe.get(3).toString());
+
+        TelefonFix tlf15 = new TelefonFix(510, "Alcatel V20", "Android 9.1", 25, "Violet");
+        telFixe.add(tlf15);
+        System.out.println(telFixe.get(4).toString());
+
+        TelefonFix tlf16 = new TelefonFix(488, "Motorola G13", "Android 9", 25, "Rosu");
+        telFixe.add(tlf16);
+        System.out.println(telFixe.get(5).toString());
+
+        TelefonFix tlf17 = new TelefonFix(450, "Panasonic KX", "Android 8.5", 15, "Portocaliu");
+        telFixe.add(tlf17);
+        System.out.println(telFixe.get(6).toString());
+
+        TelefonFix tlf18 = new TelefonFix(423, "Cisco 8821", "Android 8.3", 15, "Auriu");
+        telFixe.add(tlf18);
+        System.out.println(telFixe.get(7).toString());
+
+        TelefonFix tlf19 = new TelefonFix(310, "Gigaset 221", "Android 8", 15, "Alb");
+        telFixe.add(tlf19);
+        System.out.println(telFixe.get(8).toString());
+
+        TelefonFix tlf20 = new TelefonFix(200, "Philips D470", "Anroid 3", 10, "Roz");
+        telFixe.add(tlf20);
+        System.out.println(telFixe.get(9).toString());
+
+        TelefonPublic tlf21 = new TelefonPublic(12000,"ROMTELECOM", "Rosu", "31 CM","3M") ;
+        telPublic.add(tlf21);
+        System.out.println(telPublic.get(0).toString());
+
+        TelefonPublic tlf22 = new TelefonPublic(11500,"ROMTELECOM", "Albastru", "30.5 CM","2.8M") ;
+        telPublic.add(tlf22);
+        System.out.println(telPublic.get(1).toString());
+
+        TelefonPublic tlf23 = new TelefonPublic(11000,"ROMTELECOM", "Negru", "30 CM","2.8M") ;
+        telPublic.add(tlf23);
+        System.out.println(telPublic.get(2).toString());
+
+        TelefonPublic tlf24 = new TelefonPublic(10500,"ORANGE", "Alb", "29.5 CM","2.6M") ;
+        telPublic.add(tlf24);
+        System.out.println(telPublic.get(3).toString());
+
+        TelefonPublic tlf25 = new TelefonPublic(10000,"ORANGE", "Auriu", "29 CM","2.4M") ;
+        telPublic.add(tlf25);
+        System.out.println(telPublic.get(4).toString());
+
+        TelefonPublic tlf26 = new TelefonPublic(9500,"ORANGE", "Verde", "28.5 CM","2.2M") ;
+        telPublic.add(tlf26);
+        System.out.println(telPublic.get(5).toString());
+
+        TelefonPublic tlf27 = new TelefonPublic(9000,"COSMOTE", "Violet", "28 CM","2M") ;
+        telPublic.add(tlf27);
+        System.out.println(telPublic.get(6).toString());
+
+        TelefonPublic tlf28 = new TelefonPublic(8500,"COSMOTE", "Galben", "27.5 CM","2M") ;
+        telPublic.add(tlf28);
+        System.out.println(telPublic.get(7).toString());
+
+        TelefonPublic tlf29 = new TelefonPublic(8400,"COSMOTE", "Portocaliu", "27 CM","2M") ;
+        telPublic.add(tlf29);
+        System.out.println(telPublic.get(8).toString());
+
+        TelefonPublic tlf30 = new TelefonPublic(8300,"VODAFONE", "Roz", "26.5 CM","2M") ;
+        telPublic.add(tlf30);
+        System.out.println(telPublic.get(9).toString());
+    }
+}
